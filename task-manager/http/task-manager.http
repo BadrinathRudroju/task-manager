@@ -1,0 +1,6 @@
+@host = http://localhost:8080
+
+### Get all tasks
+GET {{host}}/Api/v1/tasks
+Accept: application/json
+

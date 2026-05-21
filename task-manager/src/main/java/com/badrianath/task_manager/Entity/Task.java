@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Task {
     private Long id;
-    private String name;
+    private String title;
     private String description;
     private Boolean completed;
     private LocalDateTime createdAt;
