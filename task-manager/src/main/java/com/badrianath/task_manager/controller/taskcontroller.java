@@ -11,7 +11,6 @@ import java.util.List;
 @RequestMapping("/Api/v1/tasks")
 public class taskcontroller {
 
-
     private List<Task> tasks = new ArrayList<>();
     private Long nextId = 1L;
 
@@ -52,7 +51,7 @@ public class taskcontroller {
         return null;
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id){
         tasks.removeIf(task -> task.getId().equals(id));
     }
