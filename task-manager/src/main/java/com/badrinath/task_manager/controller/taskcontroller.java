@@ -1,4 +1,4 @@
-package com.badrianath.task_manager.controller;
+package com.badrinath.task_manager.controller;
 
 import com.badrianath.task_manager.Entity.Task;
 import com.badrianath.task_manager.service.TaskService;

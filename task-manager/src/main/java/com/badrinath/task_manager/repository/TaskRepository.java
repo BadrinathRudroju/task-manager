@@ -1,4 +1,4 @@
-package com.badrianath.task_manager.repository;
+package com.badrinath.task_manager.repository;
 
 import com.badrianath.task_manager.Entity.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
