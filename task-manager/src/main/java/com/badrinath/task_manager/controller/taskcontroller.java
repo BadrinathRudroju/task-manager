@@ -1,7 +1,7 @@
 package com.badrinath.task_manager.controller;
 
-import com.badrianath.task_manager.Entity.Task;
-import com.badrianath.task_manager.service.TaskService;
+import com.badrinath.task_manager.entity.Task;
+import com.badrinath.task_manager.service.TaskService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

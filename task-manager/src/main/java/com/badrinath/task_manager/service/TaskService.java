@@ -1,7 +1,7 @@
 package com.badrinath.task_manager.service;
 
-import com.badrianath.task_manager.Entity.Task;
-import com.badrianath.task_manager.repository.TaskRepository;
+import com.badrinath.task_manager.entity.Task;
+import com.badrinath.task_manager.repository.TaskRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
