@@ -1,4 +1,4 @@
-package com.badrianath.task_manager.Entity;
+package com.badrinath.task_manager.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
