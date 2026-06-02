@@ -1,6 +1,10 @@
 package com.badrinath.task_manager.service;
 
+import com.badrinath.task_manager.dto.TaskRequest;
+import com.badrinath.task_manager.dto.taskResponse;
 import com.badrinath.task_manager.entity.Task;
+import com.badrinath.task_manager.exception.TaskNotFoundException;
+import com.badrinath.task_manager.mapper.TaskMapper;
 import com.badrinath.task_manager.repository.TaskRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
@@ -26,31 +30,33 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public Optional<Task> findTaskById(Long id){
-        return taskRepository.findById(id);
+    public taskResponse findTaskById(Long id){
+        Task retreivedTask = taskRepository.findById(id)
+                .orElseThrow(() -> new TaskNotFoundException(id));
+        return TaskMapper.toResponse(retreivedTask);
     }
 
-    public Task createTask( Task task){
-        return taskRepository.save(task);
+    public taskResponse createTask(TaskRequest task){
+        Task entityTask = TaskMapper.toEntity(task);
+        Task savedTask =  taskRepository.save(entityTask);
+
+        return TaskMapper.toResponse(savedTask);
     }
 
-    public  Optional<Task> updateTaskById( Long id,Task updatedTask){
-        return taskRepository.findById(id)
-                .map(task -> {
-                    updatedTask.setCompleted(updatedTask.getCompleted());
-                    updatedTask.setCreatedAt(updatedTask.getCreatedAt());
-                    updatedTask.setCompleted(updatedTask.getCompleted());
-                    return taskRepository.save(task);
-                });
+    public  taskResponse updateTaskById( Long id,TaskRequest updatedTask){
+        Task task = taskRepository.findById(id)
+                        .orElseThrow(() -> new TaskNotFoundException(id));
+
+        TaskMapper.updateEntityFromRequest(task, updatedTask);
+
+        return TaskMapper.toResponse(taskRepository.save(task));
     }
 
     public boolean deleteTaskById(Long id){
-        return taskRepository.findById(id)
-                .map(Task -> {
-                    taskRepository.delete(Task);
-                    return true;
-                })
-                .orElse(false);
+        Task task = taskRepository.findById(id).
+                orElseThrow(() -> new TaskNotFoundException(id));
+        taskRepository.delete(task);
+        return true;
     }
 
     public List<Task> getTasksByCompletionStatus(boolean status){

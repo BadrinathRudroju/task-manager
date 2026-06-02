@@ -5,6 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ac7dd15-b417-480b-ab6f-56801d51d189" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/task-manager/src/main/java/com/badrinath/task_manager/dto/TaskRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-manager/src/main/java/com/badrinath/task_manager/dto/taskResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-manager/src/main/java/com/badrinath/task_manager/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-manager/src/main/java/com/badrinath/task_manager/exception/TaskNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-manager/src/main/java/com/badrinath/task_manager/mapper/TaskMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task-manager/src/main/java/com/badrinath/task_manager/controller/taskcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-manager/src/main/java/com/badrinath/task_manager/controller/taskcontroller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task-manager/src/main/java/com/badrinath/task_manager/entity/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-manager/src/main/java/com/badrinath/task_manager/entity/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task-manager/src/main/java/com/badrinath/task_manager/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-manager/src/main/java/com/badrinath/task_manager/service/TaskService.java" afterDir="false" />
@@ -13,6 +19,18 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="15" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Exception" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,23 +73,23 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.TaskManagerApplication.executor": "Run",
-    "git-widget-placeholder": "task",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/rudro/Downloads/task-manager",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.TaskManagerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;task&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rudro/Downloads/task-manager&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
