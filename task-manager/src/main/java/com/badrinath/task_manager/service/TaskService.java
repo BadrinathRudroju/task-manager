@@ -7,14 +7,12 @@ import com.badrinath.task_manager.exception.TaskNotFoundException;
 import com.badrinath.task_manager.mapper.TaskMapper;
 import com.badrinath.task_manager.repository.TaskRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
-import java.util.Optional;
+
 
 //Business logic lies here
 @Service
@@ -30,6 +28,9 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
+    public Page<Task> findAllTasks(Pageable pageable){
+        return taskRepository.findAll(pageable);
+    }
     public taskResponse findTaskById(Long id){
         Task retreivedTask = taskRepository.findById(id)
                 .orElseThrow(() -> new TaskNotFoundException(id));
@@ -59,11 +60,33 @@ public class TaskService {
         return true;
     }
 
-    public List<Task> getTasksByCompletionStatus(boolean status){
-        return taskRepository.findByCompleted(status);
+    public List<taskResponse> getTasksByCompletionStatus(boolean status){
+        final List<Task> completedTasks = taskRepository.findByCompleted(status);
+        return completedTasks.stream()
+                .map(TaskMapper::toResponse)
+                .toList();
     }
 
-    public List<Task> SearchTasksByTitle(String title){
-        return taskRepository.findByTitleIgnoreCase(title);
+    public Page<taskResponse> getTasksByCompletionStatus(boolean status, Pageable pageable) {
+        final Page<Task> completedTasks = taskRepository.findByCompleted(status, pageable);
+        return completedTasks.map(TaskMapper::toResponse);
+
+
+    }
+
+    public Page<Task> searchTaskByTitle(String title, Pageable pageable) {
+        return taskRepository.findByTitleContainingIgnoreCase(title,pageable);
+    }
+
+    public Page<Task> searchTaskByTitleAndCompletion(
+            String title,
+            Boolean completed,
+            Pageable pageable) {
+
+        return taskRepository.findByTitleContainingAndCompleted(title,completed,pageable);
+    }
+
+    public Page<Task> getTasksByCompletion(Boolean completed, Pageable pageable) {
+        return taskRepository.findByCompleted(completed, pageable);
     }
 }
