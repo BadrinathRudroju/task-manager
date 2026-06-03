@@ -1,5 +1,6 @@
 package com.badrinath.task_manager.dto;
 
+import com.badrinath.task_manager.entity.category;
 import lombok.Builder;
 
 import java.time.LocalDateTime;
@@ -11,6 +12,7 @@ public record taskResponse(
         String title,
         String description,
         Boolean completed,
-        LocalDateTime createdAt
+        LocalDateTime createdAt,
+        categoryResponse category
 ) {
 }

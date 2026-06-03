@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: task-manager
+  profiles:
+    active: dev
+
+  datasource:
+      url: jdbc:h2:mem:taskdb
+      driverClassName: org.h2.Driver
+      username: sa
+      password: password
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: update
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+app:
+  name: task-manager
+  version: 1.0.0
+  max-tasks-per-page: 10
+
+#actuator configuration
+
+management:
+  endpoints:
+     web:
+       exposure:
+         include: health, info, metrics , env, logger, beans, mappings
+       base-path: /actuator
+  endppoints:
+     health:
+       show-details: always
+
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    description: a simple task-manager app built with spring-boot
+    version: 1.0.0
+    author: Badrinath
+
+
